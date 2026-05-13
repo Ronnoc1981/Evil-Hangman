@@ -12,8 +12,8 @@ public class HangmanGame {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Hangman! \nPlay? (y/n)");
-        String word = sc.nextLine();
-        if(word.equals("y")){
+        String answer = sc.nextLine();
+        if(answer.equals("y")){
             while (true){
                 System.out.println("How long you want the word to be: ");
                 int len = sc.nextInt();
@@ -21,7 +21,7 @@ public class HangmanGame {
                 int guesses = sc.nextInt();
                 Hangman game = new Hangman(len, guesses);
                 System.out.print("Do you want a fair game? (y/n): ");
-                String answer = sc.next();
+                answer = sc.next();
                 if(answer.equals("y")){
                     game.isCheating();
                 }
@@ -36,8 +36,7 @@ public class HangmanGame {
                 while(true){
                     System.out.println(game);
                     System.out.print("Guess: ");
-                    sc.nextLine();
-                    String guess = sc.nextLine();
+                    String guess = sc.next();
                     game.guess(guess);
                     if(game.getIsFinished() || game.guessesRemaining() == 0){
                         break;
